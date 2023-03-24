@@ -6,18 +6,18 @@ import lombok.Setter;
 
 @Getter@Setter
 public class Product {
-    private Long p_id;
-    private String p_name;
-    private String p_color;
-    private Long p_price;
+    private Long pId;
+    private String pName;
+    private String pColor;
+    private Long pPrice;
 
     public Product(){
     }
 
-    public Product(Long p_id, String p_name, String p_color, Long p_price) {
-        this.p_id = p_id;
-        this.p_name = p_name;
-        this.p_color = p_color;
-        this.p_price = p_price;
+    public Product(Long pId, String pName, String pColor, Long pPrice) {
+        this.pId = pId;
+        this.pName = pName;
+        this.pColor = pColor;
+        this.pPrice = pPrice;
     }
 }
