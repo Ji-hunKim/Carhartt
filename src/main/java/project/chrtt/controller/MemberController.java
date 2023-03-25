@@ -8,19 +8,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import project.chrtt.domain.Mem;
 import project.chrtt.service.MemberService;
+import project.chrtt.web.SessionConst;
+import project.chrtt.web.SessionManager;
 import project.chrtt.web.SignInForm;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/members")
 public class MemberController {
     private final MemberService memberService;
+    private final SessionManager sessionManager;
 
-    public MemberController(MemberService memberService) {
+    public MemberController(MemberService memberService, SessionManager sessionManager) {
         this.memberService = memberService;
+        this.sessionManager = sessionManager;
     }
 
     // sign up
@@ -46,7 +52,7 @@ public class MemberController {
 
     @PostMapping("/signin")
     public String signIn(@Valid @ModelAttribute("signInForm") SignInForm form, BindingResult bindingResult,
-                         HttpServletResponse response) {
+                         HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
             return "members/signInForm";
         }
@@ -59,10 +65,31 @@ public class MemberController {
 
         //로그인 성공 처리
         //쿠키에 시간 정보를 주지 않으면 세션 쿠키(브라우저 종료시 모두 종료)
-        Cookie idCookie = new Cookie("memberId", signInMember.getLogId());
-        idCookie.setPath("/");
-        response.addCookie(idCookie);
 
+        /**
+        * Cookie idCookie = new Cookie("memberId", signInMember.getLogId());
+        * idCookie.setPath("/");
+        * response.addCookie(idCookie);
+        **/
+
+        //세션 관리자를 통해 세션을 생성하고, 회원 데이터 보관
+        /**
+        sessionManager.createSession(signInMember, response);
+        **/
+
+        //세션이 있으면 있는 세션 반환, 없으면 신규 세션 생성
+        HttpSession session = request.getSession(); //세션에 로그인 회원 정보 보관
+        session.setAttribute(SessionConst.LOGIN_MEMBER, signInMember);
+
+        return "redirect:/";
+    }
+
+    @PostMapping("/signout")
+    public String signOut(HttpServletRequest request) {
+        //세션을 삭제한다.
+        HttpSession session = request.getSession(false); if (session != null) {
+            session.invalidate();
+        }
         return "redirect:/";
     }
 }
