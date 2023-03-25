@@ -6,8 +6,8 @@ import project.chrtt.domain.Mem;
 @Mapper
 public interface MemberMapper {
 
-    void save(Mem mem);
+    void signUp(Mem mem);
 
-    Mem findById(Long id);
+    Mem findById(String id);
 
 }

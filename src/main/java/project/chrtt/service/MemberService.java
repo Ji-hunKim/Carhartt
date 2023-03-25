@@ -12,7 +12,13 @@ public class MemberService {
         this.memberMapper = memberMapper;
     }
 
-    public void save(Mem member){
-        memberMapper.save(member);
+    public void signUp(Mem member){
+        memberMapper.signUp(member);
+    }
+
+    public Mem signIn(String logId, String password){
+        Mem member = memberMapper.findById(logId);
+        if(member == null || !member.getLogPw().equals(password) ) return null;
+        else return member;
     }
 }

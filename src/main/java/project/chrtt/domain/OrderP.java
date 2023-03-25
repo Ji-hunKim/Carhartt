@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter@Setter
 public class OrderP {
-    private Long oId;
     private Long oPrice;
     private Long oTPrice;
     private Long oCnt;
@@ -18,8 +17,7 @@ public class OrderP {
     public OrderP() {
     }
 
-    public OrderP(Long oId, Long oPrice, Long oTPrice, Long oCnt, String oCode, String oState, Long oStateNum, Long mId, Long pId) {
-        this.oId = oId;
+    public OrderP(Long oPrice, Long oTPrice, Long oCnt, String oCode, String oState, Long oStateNum, Long mId, Long pId) {
         this.oPrice = oPrice;
         this.oTPrice = oTPrice;
         this.oCnt = oCnt;
