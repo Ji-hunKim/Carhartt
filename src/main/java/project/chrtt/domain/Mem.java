@@ -17,15 +17,18 @@ public class Mem {
     private String mSex;
     @NotEmpty
     private String mName;
+    @NotEmpty
+    private String mIsmanager;
 
     public Mem(){
     }
 
-    public Mem(String logId, String logPw, String mTell, String mSex, String mName) {
+    public Mem(String logId, String logPw, String mTell, String mSex, String mName, String mIsmanager) {
         this.logId = logId;
         this.logPw = logPw;
         this.mTell = mTell;
         this.mSex = mSex;
         this.mName = mName;
+        this.mIsmanager = mIsmanager;
     }
 }

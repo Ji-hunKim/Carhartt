@@ -60,7 +60,8 @@
                    th:errorclass="field-error">
             <div class="field-error" th:errors="*{mName}" />
         </div>
-
+        <input type="hidden" id="manager" th:field="*{mIsmanager}" class="form-control"
+               th:errorclass="field-error" value="">
 
         <hr class="my-4">
 
@@ -78,5 +79,9 @@
     </form>
 
 </div> <!-- /container -->
+
+<script>
+    document.getElementById('manager').value = "0";
+</script>
 </body>
 </html>

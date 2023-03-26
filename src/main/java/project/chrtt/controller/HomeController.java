@@ -81,16 +81,22 @@ public class HomeController {
      **/
 
     @GetMapping("/")
-    public String homeLoginV3Spring( @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)
+    public String homeSignIn( @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)
             Mem signInMember,
             Model model) {
         //세션에 회원 데이터가 없으면 home
         if (signInMember == null) {
-        return "home";
+            return "home";
         }
+
 
         //세션이 유지되면 로그인으로 이동
         model.addAttribute("member", signInMember);
+        String isManager = signInMember.getMIsmanager();
+        if (isManager.equals("1")){
+            return "signInManagerHome";
+        }
+
         return "signInHome";
 }
 }

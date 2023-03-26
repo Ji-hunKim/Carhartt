@@ -22,11 +22,9 @@ import javax.validation.Valid;
 @RequestMapping("/members")
 public class MemberController {
     private final MemberService memberService;
-    private final SessionManager sessionManager;
 
     public MemberController(MemberService memberService, SessionManager sessionManager) {
         this.memberService = memberService;
-        this.sessionManager = sessionManager;
     }
 
     // sign up
