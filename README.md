@@ -8,9 +8,9 @@
 ---
 ## 사용 언어
 
-|    Java    |          Spring         |
+|    Java    |          Thymeleaf         |
 | :--------: |        :--------:       |
-|     11     |     Spring boot Gradle  |
+|     11     |     HTML 기반 Spring Framework |
 
 ---
 
