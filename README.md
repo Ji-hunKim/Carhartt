@@ -6,11 +6,12 @@
    * **[관리자 페이지 - 상품 조회,등록,수정](#관리자페이지)**
 
 ---
-## 사용 언어
+## 개발 환경
 
-|    Java    |          Thymeleaf         |
-| :--------: |        :--------:       |
-|     11     |     HTML 기반 Spring Framework |
+|    Java    |  Spring boot    |        Thymeleaf            |   MySQL       |
+| :--------: | :--------:      |      :--------:       | :--------:    |
+|     11     |     Gradle      |   HTML 기반 Spring Framework     |  Mybatis |
+
 
 ---
 
