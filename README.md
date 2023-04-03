@@ -8,20 +8,16 @@
 ---
 ## 개발 환경
 
-|    Java    |  Spring boot    |        Thymeleaf            |   MySQL       |
+|    Java    |  Spring boot    |        Thymeleaf + bootstrap            |   MySQL       |
 | :--------: | :--------:      |      :--------:       | :--------:    |
 |     11     |     Gradle      |   HTML 기반 Spring Framework     |  Mybatis |
 
 
 ---
 
-## 개발 환경
-* Spring boot (Gradle)
-* Java 11
-* MySQL
-* Mybatis
-* Bootstrap
-* Thymeleaf
+## Tools
+* Git
+* IntelliJ
 
 ---
 ## 로그인아웃
