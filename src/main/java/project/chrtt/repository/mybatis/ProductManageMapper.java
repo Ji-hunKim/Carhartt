@@ -6,7 +6,7 @@ import project.chrtt.domain.Product;
 import java.util.List;
 
 @Mapper
-public interface ProductMapper {
+public interface ProductManageMapper {
 
     List<Product> findAllProducts();
     Product findById(String pId);
