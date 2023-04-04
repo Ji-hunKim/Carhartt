@@ -11,15 +11,17 @@ public class Product {
     private String pColor;
     private Long pPrice;
     private Long pQuantity;
+    private String pImg;
 
     public Product(){
     }
 
-    public Product(Long pId, String pName, String pColor, Long pPrice, Long pQuantity) {
+    public Product(Long pId, String pName, String pColor, Long pPrice, Long pQuantity, String pImg) {
         this.pId = pId;
         this.pName = pName;
         this.pColor = pColor;
         this.pPrice = pPrice;
         this.pQuantity = pQuantity;
+        this.pImg = pImg;
     }
 }

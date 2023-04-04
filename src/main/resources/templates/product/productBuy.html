@@ -7,16 +7,22 @@
     <style>
         .container {
             max-width: 560px;
-        } </style>
+        }
+        #productImg {
+            width: 150px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <div class="py-5 text-center">
-        <h2>상품 상세</h2></div>
-    <div>
-        <label for="id">상품 ID</label>
-        <input type="text" id="id" name="pId" class="form-control"
-               value="1" th:value="${product.pId}" readonly>
+        <h2>상품 상세</h2>
+    </div>
+    <div class="row" style="text-align: center;">
+        <div class="img">
+            <img id="productImg" th:src="${product.pImg}" alt="첨부이미지" th:if="${product.pImg != null}" />
+        </div>
     </div>
     <div>
         <label for="name">상품명</label>
@@ -32,17 +38,18 @@
         <input type="text" id="price" name="pPrice" class="form-control"
                value="10000" th:value="${product.pPrice}" readonly>
     </div>
-    <div>
-        <label for="quantity">수량</label>
-        <input type="text" id="quantity" name="pQuantity" class="form-control"
-               value="10" th:value="${product.pQuantity}" readonly>
-    </div>
     <hr class="my-4">
     <div class="row">
-        <div class="col">
+        <div th:if="${product.pQuantity == 0}" class="col">
+            <button  class="w-100 btn btn-danger btn-lg"
+                    onclick="location.href='editForm.html'"
+                    th:onclick="|location.href='#'|" type="button">품절
+            </button>
+        </div>
+        <div th:unless="${product.pQuantity == 0}" class="col">
             <button class="w-100 btn btn-primary btn-lg"
                     onclick="location.href='editForm.html'"
-                    th:onclick="|location.href='#'|" type="button">상품 수정
+                    th:onclick="|location.href='#'|" type="button">구매
             </button>
         </div>
         <div class="col">

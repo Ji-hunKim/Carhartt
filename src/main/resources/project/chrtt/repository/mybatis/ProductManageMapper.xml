@@ -7,17 +7,17 @@
         from product
     </select>
     <select id="findById" resultType="Product">
-        select p_id, p_name, p_color, p_price, p_quantity
+        select p_id, p_name, p_color, p_price, p_quantity, p_img
         from product
         where p_id = #{pId}
     </select>
     <insert id="addProduct">
-        insert into product (p_name, p_color, p_price, p_quantity)
-        values (#{pName}, #{pColor}, #{pPrice}, #{pQuantity})
+        insert into product (p_name, p_color, p_price, p_quantity, p_img)
+        values (#{pName}, #{pColor}, #{pPrice}, #{pQuantity}, #{pImg})
     </insert>
     <update id="updateProduct">
         update product
-        set p_name = #{pName}, p_color = #{pColor}, p_price = #{pPrice}, p_quantity = #{pQuantity}
+        set p_name = #{pName}, p_color = #{pColor}, p_price = #{pPrice}, p_quantity = #{pQuantity}, p_img = #{pImg}
         where p_id = #{pId}
     </update>
 </mapper>

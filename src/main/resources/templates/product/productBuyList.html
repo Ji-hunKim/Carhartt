@@ -13,12 +13,10 @@
         <div class="col">
         </div>
     </div>
-    <hr class="my-4">
     <div>
         <table class="table">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>상품명</th>
                 <th>색상</th>
                 <th>가격</th>
@@ -27,12 +25,10 @@
             </thead>
             <tbody>
             <tr th:each="item : ${productList}">
-                <td><a href="productManage.html" th:href="@{/productbuy/{itemId} (itemId=${item.pId})}"
-                       th:text="${item.pId}">상품id</a></td>
                 <td><a href="productManage.html" th:href="@{|/productbuy/${item.pId}|}" th:text="${item.pName}">상품명</a></td>
                 <td th:text="${item.pColor}">색상</td>
                 <td th:text="${item.pPrice}">가격</td>
-                <td th:if="${item.pQuantity == 0}">품절</td>
+                <td th:if="${item.pQuantity == 0}" class ="text-danger">품절</td>
                 <td th:unless="${item.pQuantity == 0}">재고있음</td>
             </tr>
             </tbody>

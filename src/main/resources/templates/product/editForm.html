@@ -7,13 +7,23 @@
     <style>
         .container {
             max-width: 560px;
-        } </style>
+        }
+        #productImg {
+            width: 150px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <div class="py-5 text-center"><h2>상품 수정 폼</h2>
     </div>
-    <form action="productManage.html" th:action method="post">
+    <div class="row" style="text-align: center;">
+        <div class="img">
+            <img id="productImg" th:src="${product.pImg}" alt="첨부이미지" th:if="${product.pImg != null}" />
+        </div>
+    </div>
+    <form action="productManage.html" th:action method="post" enctype="multipart/form-data">
         <div>
             <label for="pId">상품 ID</label>
             <input type="text" id="pId" name="pId" class="form-control" value="1"
@@ -33,6 +43,11 @@
         <div>
             <label for="pQuantity">수량</label>
             <input type="text" id="pQuantity" name="pQuantity" class="form-control" th:value="${product.pQuantity}">
+        </div>
+        <hr class="my-4">
+        <div>
+            <label for="productImgg">이미지</label>
+            <input type="file" id="productImgg" name="file" accept=".jpeg" placeholder="이미지 첨부">
         </div>
         <hr class="my-4">
         <div class="row">

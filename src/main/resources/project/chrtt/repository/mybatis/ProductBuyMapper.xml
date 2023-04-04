@@ -7,7 +7,7 @@
         from product
     </select>
     <select id="findById" resultType="Product">
-        select p_id, p_name, p_color, p_price, p_quantity
+        select p_id, p_name, p_color, p_price, p_quantity, p_img
         from product
         where p_id = #{pId}
     </select>

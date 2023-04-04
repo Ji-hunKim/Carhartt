@@ -3,9 +3,12 @@ package project.chrtt.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import project.chrtt.domain.Product;
 import project.chrtt.service.ProductManageService;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -41,7 +44,18 @@ public class ProductManageController {
     }
 
     @PostMapping("/add")
-    public String addProduct(@ModelAttribute("product") Product product, Model model) {
+    public String addProduct(@ModelAttribute("product") Product product, @RequestParam(required = false) MultipartFile file, Model model) throws IOException {
+
+        if( file != null){
+            String originalName = file.getOriginalFilename();
+            String fullPath =  "/Users/jihunkim/Study/chrtt/src/main/resources/static/images/" + originalName;
+            String dbPath = "/images/" + originalName;
+
+            file.transferTo(new File(fullPath));
+
+            product.setPImg(dbPath);
+        }
+
         productManageService.addProduct(product);
         model.addAttribute("product", product);
         return "product/productManage";
@@ -56,7 +70,21 @@ public class ProductManageController {
     }
 
     @PostMapping("/{itemId}/edit")
-    public String edit(@PathVariable Long itemId, @ModelAttribute Product product) {
+    public String edit(@PathVariable Long itemId, @ModelAttribute Product product, @RequestParam(required = false) MultipartFile file) throws IOException {
+
+        if(!file.isEmpty()){
+            String originalName = file.getOriginalFilename();
+            String fullPath =  "/Users/jihunkim/Study/chrtt/src/main/resources/static/images/" + originalName;
+            String dbPath = "/images/" + originalName;
+
+            file.transferTo(new File(fullPath));
+
+            product.setPImg(dbPath);
+        }else{
+            Product productOrigin = productManageService.findById(String.valueOf(itemId));
+            product.setPImg(productOrigin.getPImg());
+        }
+
         productManageService.updateProduct(product);
         return "redirect:/productmanage/{itemId}";
     }
