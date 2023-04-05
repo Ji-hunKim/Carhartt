@@ -2,10 +2,7 @@ package project.chrtt.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import project.chrtt.domain.Product;
 import project.chrtt.service.OrderService;
@@ -28,5 +25,20 @@ public class OrderController {
         Product product = orderService.findById(pid);
         model.addAttribute("product", product);
         return "order/order";
+    }
+
+    @PostMapping("/pay")
+    public String pay(@RequestParam String pid, @RequestParam String paymentType, Model model) throws IOException {
+        int isSuccess=1;
+        orderService.savePay(pid, paymentType);
+
+        return "redirect:/order/result/" + isSuccess;
+    }
+
+    @GetMapping("/result/{isSuccess}")
+    public String showResult(@PathVariable int isSuccess, Model model) throws IOException {
+
+        model.addAttribute("isSuccess", isSuccess);
+        return "order/ordercomplete";
     }
 }

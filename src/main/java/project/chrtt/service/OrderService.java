@@ -18,4 +18,15 @@ public class OrderService {
         if(product == null) return null;
         else return product;
     }
+
+    public void savePayAndOrder(String pid, String paymentType){
+
+        if(paymentType.equals("0")){
+            //무통장입금
+
+
+        }else{
+            //카카오페이 (이미 결제 완료됨을 가정)
+        }
+    }
 }

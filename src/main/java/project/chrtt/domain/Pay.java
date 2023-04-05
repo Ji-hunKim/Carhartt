@@ -5,6 +5,7 @@ import lombok.Setter;
 
 @Getter@Setter
 public class Pay {
+    private String payId;
     private Long payPrice;
     private String payState;
     private Long payStateNum;
@@ -13,7 +14,8 @@ public class Pay {
     public Pay(){
     }
 
-    public Pay(Long payPrice, String payState, Long payStateNum, Long mId) {
+    public Pay(String payId, Long payPrice, String payState, Long payStateNum, Long mId) {
+        this.payId = payId;
         this.payPrice = payPrice;
         this.payState = payState;
         this.payStateNum = payStateNum;
