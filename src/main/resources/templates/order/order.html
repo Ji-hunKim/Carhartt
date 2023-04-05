@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link href="../css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            max-width: 560px;
+        }
+        .productinfo{
+            display: flex;
+            position: relative;
+        }
+        .productImg {
+            width:260px;
+        }
+        .producttext{
+            width:300px;
+            position: relative;
+        }
+        ul {
+            list-style-type: none;
+            position: absolute;
+            bottom: 0px;
+            padding-left: 10px;
+        }
+        #productImg {
+            width: 100%;
+            margin: auto;
+        }
+        footer {
+            position: absolute;
+            height: 80px;
+            width: 100%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>상품 주문</h2>
+    </div>
+    <div class="productinfo">
+        <div class="productImg">
+            <img id="productImg" th:src="${product.pImg}" alt="첨부이미지" th:if="${product.pImg != null}" />
+        </div>
+        <div class="producttext">
+            <ul class="productinfoul">
+                <li class="productinfoli">
+                    <span>상품명&nbsp:&nbsp</span><span th:text="${product.pName}">제품명</span>
+                </li>
+                <li class="productinfoli">
+                    <span>색상&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp</span><span th:text="${product.pColor}">색상</span>
+                </li>
+                <li class="productinfoli">
+                    <span>가격&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp</span><span th:text="${product.pPrice}">가격</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr class="my-4">
+    <p><strong>결제 수단</strong></p>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary btn-lg" >
+            <input
+                    type="radio"
+                    class="btn-check"
+                    name="section"
+                    id="option1"
+                    autocomplete="off"
+                    value="0";
+            />
+            무통장입금
+        </label>
+        <label class="btn btn-outline-warning btn-lg">
+            <input
+                    type="radio"
+                    class="btn-check"
+                    name="section"
+                    id="option2"
+                    autocomplete="off"
+                    valut="1"
+            />
+            카카오페이
+        </label>
+    </div>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col">
+            <button  class="w-100 btn btn-primary btn-lg"
+                     onclick="location.href='editForm.html'"
+                     th:onclick="|location.href='#'|" type="button">주문하기
+            </button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-secondary btn-lg"
+                    onclick="location.href='items.html'"
+                    th:onclick="|location.href='@{/productbuy/productList}'|" type="button">목록으로
+            </button>
+        </div>
+    </div>
+</div> <!-- /container -->
+<footer></footer>
+</body>
+</html>

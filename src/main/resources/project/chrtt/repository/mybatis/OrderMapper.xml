@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.chrtt.repository.mybatis.OrderMapper">
+    <select id="findById" resultType="Product">
+        select p_id, p_name, p_color, p_price, p_quantity, p_img
+        from product
+        where p_id = #{pId}
+    </select>
+</mapper>

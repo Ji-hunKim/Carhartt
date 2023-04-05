@@ -2,17 +2,12 @@ package project.chrtt.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import project.chrtt.domain.Mem;
 import project.chrtt.repository.mybatis.MemberMapper;
-import project.chrtt.service.MemberService;
 import project.chrtt.web.SessionConst;
 import project.chrtt.web.SessionManager;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
@@ -86,7 +81,7 @@ public class HomeController {
             Model model) {
         //세션에 회원 데이터가 없으면 home
         if (signInMember == null) {
-            return "home";
+            return "home/home";
         }
 
 
@@ -94,9 +89,9 @@ public class HomeController {
         model.addAttribute("member", signInMember);
         String isManager = signInMember.getMIsmanager();
         if (isManager.equals("1")){
-            return "signInManagerHome";
+            return "home/signInManagerHome";
         }
 
-        return "signInHome";
+        return "home/signInHome";
 }
 }
