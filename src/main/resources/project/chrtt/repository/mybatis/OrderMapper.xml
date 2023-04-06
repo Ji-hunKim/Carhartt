@@ -7,4 +7,12 @@
         from product
         where p_id = #{pId}
     </select>
+    <insert id="addPay">
+        insert into pay (pay_id, pay_price, pay_state, pay_state_num, pay_type_num, pay_type, p_id, log_id)
+        values (#{payId}, #{payPrice}, #{payState}, #{payStateNum}, #{payTypeNum}, #{payType}, #{pId}, #{logId})
+    </insert>
+    <insert id="addOrder">
+        insert into order_p (o_date, o_price, o_t_price, o_state, o_state_num, p_id, log_id, pay_id, o_code, o_quantity)
+        values (#{oDate}, #{oPrice}, #{oTPrice}, #{oState}, #{oStateNum}, #{pId},  #{logId},  #{payId}, #{oCode}, #{oQuantity})
+    </insert>
 </mapper>
