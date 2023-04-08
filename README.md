@@ -31,7 +31,6 @@
 ㄴ홈화면
 <br><br>
 <img width="555" alt="Screen Shot 2023-04-09 at 2 55 31 AM" src="https://user-images.githubusercontent.com/68188361/230736866-65afefaf-230e-4921-ba85-00beeab62c65.png">
-
 <br>
 ㄴ로그인 (틀렸을 때)
 <br><br>
@@ -40,10 +39,11 @@
 - [x] 로그인 시 관리자 분기처리 구현
 <img width="557" alt="Screen Shot 2023-04-09 at 2 55 39 AM" src="https://user-images.githubusercontent.com/68188361/230736439-8f25d107-fe40-4cd9-8c8d-c0fef1ec8b75.png">
 <br>
-ㄴ관리자
+ㄴ1) 관리자
+<br><br>
 <img width="590" alt="Screen Shot 2023-04-09 at 2 56 40 AM" src="https://user-images.githubusercontent.com/68188361/230736457-d5ca8803-c8ba-4ffd-82c2-064a347dca82.png">
 <br>
-ㄴ사용자
+ㄴ2) 사용자<br>
 ㄴ세션 활용 분기처리(관리자/사용자별 보이는 화면 메뉴가 다름)
 <br><br>
 
