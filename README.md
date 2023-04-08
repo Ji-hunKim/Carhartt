@@ -5,6 +5,7 @@
    * **[로그인/로그아웃](#로그인아웃)**
    * **[사용자 관리자 분기처리](#관리자분기처리)**
    * **[관리자 페이지 - 상품 조회,등록,수정](#관리자페이지)**
+   * **[사용자 페이지 - 상품 조회,주문,결제](#사용자페이지)**
 
 ---
 ## 개발 환경
@@ -68,11 +69,22 @@
 
 ## 사용자페이지
 <img width="601" alt="Screen Shot 2023-04-09 at 2 56 47 AM" src="https://user-images.githubusercontent.com/68188361/230736634-6c7cc94f-9fbb-4f84-adf3-705e827598c0.png">
-
 <br>
-ㄴ홈화면
+ㄴ사용자 상품 목록 (품절 확인 가능)
 <br><br>
 
+<img width="593" alt="Screen Shot 2023-04-09 at 2 56 52 AM" src="https://user-images.githubusercontent.com/68188361/230736712-2ff09a8f-e83e-46ee-8e31-a4126b7fcb73.png">
 <br>
-ㄴ홈화면
+ㄴ사용자 상품 상세보기
 <br><br>
+
+<img width="565" alt="Screen Shot 2023-04-09 at 2 56 59 AM" src="https://user-images.githubusercontent.com/68188361/230736764-595ba35d-d806-4ee9-acf8-adddc42975c2.png">
+<br>
+ㄴ사용자 품절 확인
+<br><br>
+
+<img width="568" alt="Screen Shot 2023-04-09 at 2 57 11 AM" src="https://user-images.githubusercontent.com/68188361/230736785-f86a9100-5586-4eac-a772-6051746ce152.png">
+<br>
+ㄴ사용자 주문 화면
+<br><br>
+
