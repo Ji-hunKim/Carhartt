@@ -30,7 +30,8 @@
 <br>
 ㄴ홈화면
 <br><br>
-<img width="562" alt="Screen Shot 2023-04-09 at 2 55 23 AM" src="https://user-images.githubusercontent.com/68188361/230736412-c9e866ea-3f6c-4c7e-afd6-d7262e82522b.png">
+<img width="555" alt="Screen Shot 2023-04-09 at 2 55 31 AM" src="https://user-images.githubusercontent.com/68188361/230736866-65afefaf-230e-4921-ba85-00beeab62c65.png">
+
 <br>
 ㄴ로그인 (틀렸을 때)
 <br><br>
